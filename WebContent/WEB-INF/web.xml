@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>DBCPInit</servlet-name>
+    <servlet-class>com.board.db.loader.DBCPInit</servlet-class>
+    <init-param>
+      <param-name>jdbcDriver</param-name>
+<!--       <param-value>oracle.jdbc.driver.OracleDriver</param-value> -->
+    	<param-value>com.mysql.jdbc.Driver</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ConnectionProviderInit</servlet-name>
+    <servlet-class>com.board.db.loader.ConnectionProviderInit</servlet-class>
+    <init-param>
+      <param-name>jocl</param-name>
+<!--       <param-value>guestbook_oracle</param-value> -->
+      <param-value>guestbook_mysql</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>MemberDAOProviderInit</servlet-name>
+    <servlet-class>com.board.dao.MemberDAOProviderInit</servlet-class>
+    <init-param>
+      <param-name>dbms</param-name>
+<!--       <param-value>oracle</param-value> -->
+      <param-value>mysql</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>MessageDAOProviderInit</servlet-name>
+    <servlet-class>com.board.dao.MessageDAOProviderInit</servlet-class>
+    <init-param>
+      <param-name>dbms</param-name>
+<!--       <param-value>oracle</param-value> -->
+      <param-value>mysql</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+</web-app>
